@@ -1,13 +1,22 @@
+module KandrRailsExtensions
+  module NilCount
+    def count
+      nil
+    end
+  end
+
+  module NilEmptyOrPresent
+    def empty?
+      true
+    end
+
+    def present?
+      false
+    end
+  end
+end
+
 class NilClass
-  def count
-    nil
-  end
-
-  def empty?
-    true
-  end
-
-  def present?
-    false
-  end
+  include KandrRailsExtensions::NilCount
+  include KandrRailsExtensions::NilEmptyOrPresent
 end

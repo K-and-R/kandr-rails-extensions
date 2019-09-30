@@ -1,5 +1,12 @@
-class Time
-  def to_ms
-    (self.to_f * 1000.0).to_i
+module KandrRailsExtensions
+
+  module TimeMilliseconds
+    def to_ms
+      (self.to_f * 1000.0).to_i
+    end
   end
+end
+
+class Time
+  include KandrRailsExtensions::TimeMilliseconds
 end
