@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 module KandrRailsExtensions
+  # Some common expected methods
   module OpenStructExtensions
     def to_json
       recurse(to_h).to_json
@@ -32,6 +35,7 @@ module KandrRailsExtensions
   end
 end
 
+# Add modifications to `OpenStruct` class
 class OpenStruct
   include KandrRailsExtensions::OpenStructExtensions
 end

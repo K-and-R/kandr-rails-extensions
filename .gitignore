@@ -1,11 +1,48 @@
+
+# Build artifacts
 *.gem
+*.rbc
+pkg/*
+
+# Bundler artifacts
 .bundle
 Gemfile.lock
 gemfiles/*.lock
-pkg/*
-tmp/*
-coverage/*
-log*/*
-.rbx/*
+
+# Node packages
+node_modules
+
+# Development artifacts
+yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+.byebug_history
+rdoc
+pkg
 .rspec
+
+# environment
+.config
+.env
+
+# OS artifacts
+.DS_Store
+
+# Log files
+log/*
+logs/*
+*.log
+
+# IDE/Editor artifacts
+*.code-workspace
+*.tmproj
+tmtags
+tmp/*
+*~
+\#*
+.\#*
 *.swp
+
+# code coverage analysis artifacts
+coverage
+

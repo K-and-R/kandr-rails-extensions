@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
 require 'ostruct'
 
 module KandrRailsExtensions
+  # Converting a Hash to an OpenStruct
   module HashToOstruct
     # Recursively converts a `Hash` and all nested `Hash`es to
     # `OpenStruct`s. Especially useful for parsing YAML.
@@ -40,13 +43,15 @@ module KandrRailsExtensions
     end
   end
 
+  # Add `drop` methods to remove keys from a hash, and return the hash itself,
+  # rather than the removed elements (as is done by `delete`)
   module HashDrop
-    # Like Hash#drop but works on (and returns) a copy hsh
+    # Like Hash#drop but works on (and returns) a copy hash
     def drop *keys, &block
       self.clone.drop! *keys, &block
     end
 
-    # Like Hash#delete but works on (and returns) hsh
+    # Like Hash#delete but works on (and returns) hash
     def drop! *keys
       if block_given?
         keys.each{ |key| delete(key) if yield self, key }
@@ -58,6 +63,7 @@ module KandrRailsExtensions
   end
 end
 
+# Add modifications to `Hash` class
 class Hash
   include KandrRailsExtensions::HashToOstruct
   include KandrRailsExtensions::HashDrop

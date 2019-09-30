@@ -1,8 +1,15 @@
-# Add more extensions to Date beyond those provided by "active_support/core_ext/date"
+# frozen_string_literal: true
+
+require 'date'
+
+# Add more extensions to Date beyond those provided
+# by "active_support/core_ext/date"
+
 module KandrRailsExtensions
+  # Date comparisons
   module DateCompare
     def before?(date, inclusive=false)
-      !!(self < date) unless inclusive
+      return !!(self < date) unless inclusive
       !!(self <= date)
     end
 
@@ -37,4 +44,7 @@ module KandrRailsExtensions
   end
 end
 
-class Date; include KandrRailsExtensions::DateCompare; end
+# Add modifications to `Date` class
+class Date
+  include KandrRailsExtensions::DateCompare
+end

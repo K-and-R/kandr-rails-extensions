@@ -11,11 +11,16 @@ documented in this file. This project adheres to [Semantic Versioning](http://se
 * Add `String::to_bool`
 * Require time module by default
 * Add `TimeEpochTime` module providing the following methods to `Time`:
-  + `to_epoch`
-  + `to_posix`
-  + `to_unix`
+    * `to_epoch`
+    * `to_posix`
+    * `to_unix`
 * Modify `Hash::drop(!)` to accept a block
+* Add `Gemfile`
+* Add RSpec tests
+* Add analysis, linting, and coverage reporting to CodeClimate
+* Add CodeClimate badges to `README`
 * Use `MIT` license in `.gemspec` file; add `LICENSE` file
+* Add GitHub templates
 
 ## 0.1.0 (2019-01-01)
 
