@@ -8,6 +8,7 @@ documented in this file. This project adheres to [Semantic Versioning](http://se
 
 * Move our modifications into submodules of `KandrRailsExtensions` module
 * Include our submodules into the respective classes
+* Add `String::to_bool`
 
 ## 0.1.0 (2019-01-01)
 
