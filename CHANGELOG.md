@@ -14,6 +14,7 @@ documented in this file. This project adheres to [Semantic Versioning](http://se
   + `to_epoch`
   + `to_posix`
   + `to_unix`
+* Modify `Hash::drop(!)` to accept a block
 
 ## 0.1.0 (2019-01-01)
 

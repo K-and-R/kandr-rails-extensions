@@ -42,15 +42,17 @@ module KandrRailsExtensions
 
   module HashDrop
     # Like Hash#drop but works on (and returns) a copy hsh
-    def drop *keys
-      hsh = self.clone
-      keys.each{ |key| hsh.delete key }
-      hsh
+    def drop *keys, &block
+      self.clone.drop! *keys, &block
     end
 
     # Like Hash#delete but works on (and returns) hsh
     def drop! *keys
-      keys.each{ |key| delete key }
+      if block_given?
+        keys.each{ |key| delete(key) if yield self, key }
+      else
+        keys.each{ |key| delete key }
+      end
       self
     end
   end
