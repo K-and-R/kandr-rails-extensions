@@ -10,6 +10,10 @@ documented in this file. This project adheres to [Semantic Versioning](http://se
 * Include our submodules into the respective classes
 * Add `String::to_bool`
 * Require time module by default
+* Add `TimeEpochTime` module providing the following methods to `Time`:
+  + `to_epoch`
+  + `to_posix`
+  + `to_unix`
 
 ## 0.1.0 (2019-01-01)
 
