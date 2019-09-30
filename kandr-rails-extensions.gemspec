@@ -12,9 +12,9 @@ Gem::Specification.new do |s|
   s.email       = ['karl@kandrsoftware.com']
   s.homepage    = 'https://github.com/K-and-R/kandr-rails-extensions'
   s.platform    = Gem::Platform::RUBY
-  s.license     = 'UNLICENSED'
+  s.license     = 'MIT'
 
-  s.files       = `git ls-files lib kandr-rails-extensions.gemspec`.split($INPUT_RECORD_SEPARATOR)
+  s.files       = `git ls-files lib kandr-rails-extensions.gemspec LICENSE`.split($INPUT_RECORD_SEPARATOR)
 
   s.required_ruby_version = '>= 2.2.0'
 end

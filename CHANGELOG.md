@@ -15,6 +15,7 @@ documented in this file. This project adheres to [Semantic Versioning](http://se
   + `to_posix`
   + `to_unix`
 * Modify `Hash::drop(!)` to accept a block
+* Use `MIT` license in `.gemspec` file; add `LICENSE` file
 
 ## 0.1.0 (2019-01-01)
 
