@@ -9,6 +9,18 @@ describe String do
         'now I lay me down to sleep'.titleize_with_exclusions
       ).to eq('Now I Lay Me Down To Sleep')
     end
+
+    it 'excludes a word when passed' do
+      expect(
+        'now I lay me down to sleep'.titleize_with_exclusions(exclude: 'to')
+      ).to eq('Now I Lay Me Down to Sleep')
+    end
+
+    it 'excludes multiuple words when passed' do
+      expect(
+        'now I lay me down to sleep'.titleize_with_exclusions(exclude: %w[to me])
+      ).to eq('Now I Lay me Down to Sleep')
+    end
   end
 
   context 'using StringToBoolean' do

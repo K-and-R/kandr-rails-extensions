@@ -53,4 +53,17 @@ describe Array do
       end
     end
   end
+
+  context 'using ArrayIncludes' do
+    context 'checking with `includes?`' do
+      it 'returns true when element is found' do
+        expect([1,2,3,4,5].includes?(5)).to be_true
+        expect(['foo','bar','baz'].includes?('bar')).to be_true
+      end
+      it 'returns false when element is not found' do
+        expect([1,2,3,4,5].includes?(7)).to be_false
+        expect(['foo','boo','baz'].includes?('bar')).to be_false
+      end
+    end
+  end
 end
