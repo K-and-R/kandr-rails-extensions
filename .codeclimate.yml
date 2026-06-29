@@ -1,0 +1,34 @@
+---
+version: 2
+plugins:
+  bundler-audit:
+    enabled: true
+  duplication:
+    enabled: true
+  editorconfig:
+    enabled: true
+  fixme:
+    enabled: true
+  flog:
+    enabled: true
+  markdownlint:
+    enabled: true
+  reek:
+    enabled: true
+  rubocop:
+    enabled: true
+exclude_patterns:
+- ./**/*.{ico,log,orig}
+- .github/**/*
+- config/**/*
+- coverage/**/*
+- Gemfile.lock
+- log/**/*
+- node_modules/**/*
+- public/packs/**/*
+- script/**/*
+- spec/**/*
+- test/**/*
+- tmp/**/*
+- vendor/**/*
+- yarn.lock

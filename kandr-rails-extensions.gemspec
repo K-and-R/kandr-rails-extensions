@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# rubocop:disable Metrics/LineLength
 
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
@@ -12,9 +15,18 @@ Gem::Specification.new do |s|
   s.email       = ['karl@kandrsoftware.com']
   s.homepage    = 'https://github.com/K-and-R/kandr-rails-extensions'
   s.platform    = Gem::Platform::RUBY
-  s.license     = 'UNLICENSED'
+  s.license     = 'MIT'
 
-  s.files       = `git ls-files lib kandr-rails-extensions.gemspec`.split($INPUT_RECORD_SEPARATOR)
+  s.files       = `git ls-files lib kandr-rails-extensions.gemspec LICENSE`.split($INPUT_RECORD_SEPARATOR)
 
-  s.required_ruby_version = '>= 2.2.0'
+  s.add_development_dependency 'codeclimate-test-reporter'
+  s.add_development_dependency 'pry'
+  s.add_development_dependency 'rspec'
+  s.add_development_dependency 'simplecov'
+
+  s.required_ruby_version = '>= 2.3.0'
+
+  s.add_runtime_dependency 'activesupport'
 end
+
+# rubocop:enable Metrics/LineLength

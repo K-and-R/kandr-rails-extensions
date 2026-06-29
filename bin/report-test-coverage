@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# `CC_TEST_REPORTER_ID` should be defined is `.env`. Its value is the
+# `TEST REPORTER ID` obtained here:
+# https://codeclimate.com/repos/5d899d0300334801630078bb/settings/test_reporter
+. .env
+cc-test-reporter after-build
