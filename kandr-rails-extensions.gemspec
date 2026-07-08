@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.email       = ['karl@kandrsoftware.com']
   s.homepage    = 'https://github.com/K-and-R/kandr-rails-extensions'
   s.platform    = Gem::Platform::RUBY
-  s.license     = 'MIT'
+  s.license     = 'BSD-3-Clause'
 
   s.files       = `git ls-files lib kandr-rails-extensions.gemspec LICENSE`.split($INPUT_RECORD_SEPARATOR)
 

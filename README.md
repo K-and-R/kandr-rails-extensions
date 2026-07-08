@@ -51,3 +51,6 @@ additional requirements.
   gem install specific_install
   gem specific_install git@github.com:K-and-R/kandr-rails-extensions.git
   ```
+
+`kandr-rails-extensions` is copyright K&R Software, LLC and contributors, licensed under the [3-Clause BSD License](https://opensource.org/license/BSD-3-Clause). See the included [LICENSE](./LICENSE) file for details.
+
