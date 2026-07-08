@@ -4,6 +4,31 @@ This file is used to list changes made in each version of
 `kandr-rails-extensions`.  All notable changes to this project will be
 documented in this file. This project adheres to [Semantic Versioning](http://semver.org/).
 
+## 0.5.0 (TBD)
+
+* Expand RSpec coverage across extension modules (Array, Date, FalseClass,
+  File, Hash, Integer, NilClass, OpenStruct, String, Time, TrueClass)
+* Cover `HashDrop` (`drop` / `drop!`, multi-key, blocks) and `HashToOstruct`
+* Cover `IntegerFactorial` / `IntegerTermial` and `Time` epoch / millisecond helpers
+* Cover `OpenStruct` `to_json`, `delete`, and `key?` / `has_key?`
+* Expand `String` specs (titleize API, slugify edge cases, trim family, includes)
+* Fix `StringTitleize#titleize` / `titleize_with_exclusions` to use real keyword
+  arguments (avoids Ruby 2.7 bare-hash kwargs deprecation warnings)
+* Further Rubocop delinting; raise allowed method complexity where needed
+
+## 0.4.0 (2026-07-08)
+
+* Bump minimum required Ruby version to `2.7.0`
+* Add runtime dependency on `ostruct`
+* Add development dependency on `simplecov_json_formatter` for Qlty coverage upload
+* Switch license from MIT to 3-clause BSD
+* Add Qlty (formerly CodeClimate) configuration (`.qlty/`)
+* Fix Qlty / CodeClimate badge links in `README`; clean up Gemfile GitHub example
+* Update Rubocop configuration and delint library code
+* Fix `StringTitleize#titleize` so it properly overrides ActiveSupport
+  (`prepend` + `super`), supporting `:exclude` and falling back when blank
+* Ignore `.ruby-version` in `.gitignore`
+
 ## 0.3.0 (2024-01-31)
 
 * Add back in Ruby <3.2.0 `File.exists?` ...because it is more correct.
