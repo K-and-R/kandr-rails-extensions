@@ -6,9 +6,11 @@ module KandrRailsExtensions
     def count
       nil
     end
+
     def first
       nil
     end
+
     def last
       nil
     end

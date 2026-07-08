@@ -80,17 +80,47 @@ module KandrRailsExtensions
 
   #  `String::titleize`
   module StringTitleize
-    # Overridding to support exclusions
-    def titleize(options = {})
-      exclusions = options.delete(:exclude)
-      return super(options) if exclusions.blank?
-      titleize_with_exclusions
+    # Override to support the :exclude option in addition to ActiveSupport options
+    # (e.g. keep_id_suffix:). If :exclude is present and non-blank we use custom
+    # logic that leaves excluded words alone. Otherwise we discard the option
+    # and delegate to ActiveSupport via super.
+    def titleize(*args, **kwargs)
+      # Support both titleize(exclude: ...) and legacy titleize({ exclude: ... })
+      exclude = nil
+      if args.first.is_a?(Hash)
+        opts = args.first.dup
+        exclude = opts.delete(:exclude)
+        kwargs = kwargs.merge(opts)
+      else
+        exclude = kwargs.delete(:exclude)
+      end
+
+      if exclude.present?
+        return titleize_with_exclusions(exclude: exclude, **kwargs)
+      end
+
+      # No meaningful :exclude provided: fall back to ActiveSupport
+      super(*args, **kwargs)
     end
 
-    def titleize_with_exclusions(options = {})
-      exclusions = options.delete(:exclude)
-      return titleize(options) if exclusions.blank?
-      exclusions = [exclusions] unless exclusions.respond_to?(:join)
+    def titleize_with_exclusions(*args, **kwargs)
+      # Normalize exclude from either calling convention
+      exclude = nil
+      if args.first.is_a?(Hash)
+        opts = args.first.dup
+        exclude = opts.delete(:exclude)
+        kwargs = kwargs.merge(opts)
+      else
+        exclude = kwargs.delete(:exclude)
+      end
+
+      if exclude.blank?
+        # throw it away and fall back to ActiveSupport
+        return titleize(**kwargs)
+      end
+
+      exclusions = exclude.respond_to?(:join) ? exclude : [exclude]
+
       self.underscore.humanize.gsub(
         /\b(['’`]?(?!(#{exclusions.join('|')})\b)[a-z])/
       ) { $&.capitalize }
@@ -99,31 +129,31 @@ module KandrRailsExtensions
 
   #  `String::trim`, and friends
   module StringTrim
-    def trim(str=' ', count = nil)
+    def trim(str = ' ', count = nil)
       ltrim(str, count).rtrim(str, count)
     end
 
-    def ltrim(str=' ', count = nil)
+    def ltrim(str = ' ', count = nil)
       trim_leading(str, count)
     end
 
-    def rtrim(str=' ', count = nil)
+    def rtrim(str = ' ', count = nil)
       trim_trailing(str, count)
     end
 
     def trim_leading(str, count = nil)
       if count
-        gsub!(/^#{str}{,#{count}}/,'') || self
+        gsub!(/^#{str}{,#{count}}/, '') || self
       else
-        gsub!(/^#{str}+/,'') || self
+        gsub!(/^#{str}+/, '') || self
       end
     end
 
     def trim_trailing(str, count = nil)
       if count
-        gsub!(/#{str}{,#{count}}$/,'') || self
+        gsub!(/#{str}{,#{count}}$/, '') || self
       else
-        gsub!(/#{str}+$/,'') || self
+        gsub!(/#{str}+$/, '') || self
       end
     end
   end
@@ -131,10 +161,10 @@ end
 
 # Add modifications to `String` class
 class String
+  prepend KandrRailsExtensions::StringTitleize
   include KandrRailsExtensions::StringBoolean
   include KandrRailsExtensions::StringIncludes
   include KandrRailsExtensions::StringPresent
   include KandrRailsExtensions::StringSlugify
-  include KandrRailsExtensions::StringTitleize
   include KandrRailsExtensions::StringTrim
 end

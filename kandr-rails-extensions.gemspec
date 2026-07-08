@@ -15,18 +15,18 @@ Gem::Specification.new do |s|
   s.email       = ['karl@kandrsoftware.com']
   s.homepage    = 'https://github.com/K-and-R/kandr-rails-extensions'
   s.platform    = Gem::Platform::RUBY
-  s.license     = 'MIT'
+  s.license     = 'BSD-3-Clause'
 
   s.files       = `git ls-files lib kandr-rails-extensions.gemspec LICENSE`.split($INPUT_RECORD_SEPARATOR)
 
-  s.add_development_dependency 'codeclimate-test-reporter'
-  s.add_development_dependency 'pry'
   s.add_development_dependency 'rspec'
   s.add_development_dependency 'simplecov'
+  s.add_development_dependency 'simplecov_json_formatter', '0.1.0' 
 
-  s.required_ruby_version = '>= 2.3.0'
+  s.required_ruby_version = '>= 2.7.0'
 
   s.add_runtime_dependency 'activesupport'
+  s.add_runtime_dependency 'ostruct'
 end
 
 # rubocop:enable Metrics/LineLength

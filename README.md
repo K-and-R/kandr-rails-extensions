@@ -1,7 +1,7 @@
 # `kandr-rails-extensions`
 
-[![Code Climate](https://codeclimate.com/github/K-and-R/kandr-rails-extensions/badges/gpa.svg)](https://codeclimate.com/github/K-and-R/kandr-rails-extensions)
-[![Test Coverage](https://codeclimate.com/github/K-and-R/kandr-rails-extensions/badges/coverage.svg)](https://codeclimate.com/github/K-and-R/kandr-rails-extensions/coverage)
+[![Maintainability](https://qlty.sh/gh/K-and-R/projects/kandr-rails-extensions/maintainability.svg)](https://qlty.sh/gh/K-and-R/projects/kandr-rails-extensions)
+[![Test Coverage](https://qlty.sh/gh/K-and-R/projects/kandr-rails-extensions/coverage.svg)](https://qlty.sh/gh/K-and-R/projects/kandr-rails-extensions)
 
 A set of Rails extensions for use in K&R Software applications.
 
@@ -32,12 +32,12 @@ additional requirements.
 * Add the following to your `Gemfile`
 
   ```ruby
-  git_source(:github_ssh) do |repo_name|
+  git_source(:github) do |repo_name|
     repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-    "git@github.com:#{repo_name}.git"
+    "https://github.com/#{repo_name}.git"
   end
 
-  gem 'kandr-rails-extensions', github_ssh: 'K-and-R/kandr-rails-extensions'
+  gem 'kandr-rails-extensions', github: 'K-and-R/kandr-rails-extensions'
   ```
 
 * run the `bundle` command
@@ -51,3 +51,6 @@ additional requirements.
   gem install specific_install
   gem specific_install git@github.com:K-and-R/kandr-rails-extensions.git
   ```
+
+`kandr-rails-extensions` is copyright K&R Software, LLC and contributors, licensed under the [3-Clause BSD License](https://opensource.org/license/BSD-3-Clause). See the included [LICENSE](./LICENSE) file for details.
+

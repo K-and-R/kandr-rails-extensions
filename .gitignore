@@ -3,6 +3,7 @@
 *.gem
 *.rbc
 pkg/*
+.ruby-version
 
 # Bundler artifacts
 .bundle

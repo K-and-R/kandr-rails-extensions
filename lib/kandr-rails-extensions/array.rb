@@ -39,7 +39,6 @@ module KandrRailsExtensions
   end
 end
 
-
 # Add modifications to `Array` class
 class Array
   include KandrRailsExtensions::ArrayAverage
