@@ -8,7 +8,7 @@
 # where the inspected file is and continue its way up to the root directory.
 #
 # See https://github.com/rubocop-hq/rubocop/blob/master/manual/configuration.md
-require:
+plugins:
   - rubocop-rspec
 
 AllCops:
@@ -23,7 +23,7 @@ Layout/EndOfLine:
 Layout/EmptyLineAfterGuardClause:
   Enabled: false
 
-Layout/IndentFirstHashElement:
+Layout/FirstHashElementIndentation:
   Enabled: true
   EnforcedStyle: consistent
 
@@ -40,9 +40,6 @@ RSpec/PredicateMatcher:
 
 Style/Alias:
   EnforcedStyle: prefer_alias_method
-
-Style/BracesAroundHashParameters:
-  EnforcedStyle: context_dependent
 
 Style/SignalException:
   EnforcedStyle: semantic
