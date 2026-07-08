@@ -39,7 +39,7 @@ gem 'actionpack'
 gem 'activesupport'
 
 # RSpec, and its Rails integration for testing
-gem 'rspec-rails', '>= 4.0.1'
+gem 'rspec-rails'
 # Ability to test out install generator
 gem 'generator_spec'
 
@@ -47,8 +47,7 @@ gem 'generator_spec'
 gem 'pry'
 
 # Simplecov for code coverage reporting
-# gem 'simplecov', '>= 0.20.0'
-gem 'simplecov', '>= 0.17.0', '< 0.18'
+gem 'simplecov'
 
 # For generating documentation
 gem 'yard', '>= 0.7.0'
@@ -59,7 +58,7 @@ group :development do
   # Pry Rails extensions
   gem 'pry-rails'
   # Added  by `pry-plus` but needs to be locked to an earlier version
-  #gem 'pry-stack_explorer', '0.4.9.3'
+  # gem 'pry-stack_explorer', '0.4.9.3'
 
   # Rubocop for ensuring well written code
   gem 'rubocop', '>= 1.0'
