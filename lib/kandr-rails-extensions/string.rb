@@ -129,31 +129,31 @@ module KandrRailsExtensions
 
   #  `String::trim`, and friends
   module StringTrim
-    def trim(str=' ', count = nil)
+    def trim(str = ' ', count = nil)
       ltrim(str, count).rtrim(str, count)
     end
 
-    def ltrim(str=' ', count = nil)
+    def ltrim(str = ' ', count = nil)
       trim_leading(str, count)
     end
 
-    def rtrim(str=' ', count = nil)
+    def rtrim(str = ' ', count = nil)
       trim_trailing(str, count)
     end
 
     def trim_leading(str, count = nil)
       if count
-        gsub!(/^#{str}{,#{count}}/,'') || self
+        gsub!(/^#{str}{,#{count}}/, '') || self
       else
-        gsub!(/^#{str}+/,'') || self
+        gsub!(/^#{str}+/, '') || self
       end
     end
 
     def trim_trailing(str, count = nil)
       if count
-        gsub!(/#{str}{,#{count}}$/,'') || self
+        gsub!(/#{str}{,#{count}}$/, '') || self
       else
-        gsub!(/#{str}+$/,'') || self
+        gsub!(/#{str}+$/, '') || self
       end
     end
   end

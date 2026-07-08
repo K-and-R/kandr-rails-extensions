@@ -23,7 +23,7 @@ module KandrRailsExtensions
       when OpenStruct
         recurse(val.to_h)
       when Hash
-        Hash[val.map {|k,v| [k, recurse(v)] }]
+        Hash[val.map { |k, v| [k, recurse(v)] }]
       when Array
         val.map do |v|
           recurse(v)
