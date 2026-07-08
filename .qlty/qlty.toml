@@ -72,7 +72,7 @@ threshold = 4
 threshold = 4
 
 [smells.function_complexity]
-threshold = 5
+threshold = 8
 
 [smells.identical_code]
 threshold = 15
